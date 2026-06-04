@@ -21,3 +21,19 @@ Mutual Fund Analytics Capstone Project for Bluestock Fintech Business Analyst In
 ### Tools Used:
 - Google Sheets / MS Excel (Data Cleaning)
 - GitHub (Documentation)
+## Day 3 — Exploratory Data Analysis (EDA) & Statistical Insights
+
+### Tasks Completed:
+* **Programmatic Data Ingestion:** Successfully loaded the cleaned multi-asset dataset comprising 8,050 historical logs into Python utilizing optimized operational schemas.
+* **Descriptive Statistical Modeling:** Computed critical baseline metrics including Mean, Median, and Standard Deviation ($\sigma$) across high-growth equity, mid-caps, and defensive debt benchmarks.
+* **Advanced Portfolio Visualizations:** Generated structural charts to track core market cycles and asset size variances.
+
+### Performance Visualizations:
+1. **NAV Trend Analysis (2022-2026):** Captured the macroeconomic 2023 Bull Run and the structural June 2024 Market Correction phases using interactive line plots.
+2. **Fund Valuation & Asset Distribution:** Vertical/horizontal bar mappings highlighting structural valuation caps, showing significant asset concentration within the `BSE_SMALLCAP` sector.
+3. **Pearson Correlation Heatmap:** Formulated a full-scale inter-asset performance correlation matrix to quantify multi-asset diversification shields and asset insulation properties.
+
+### Key Analytical Takeaways:
+* **The High-Volatility Vehicle:** `BSE_SMALLCAP` records an exceptionally high structural valuation average, but carries an elevated risk premium with a Standard Deviation ($\sigma \approx 16,442.61$).
+* **Systemic Market Integration:** Strong positive correlation matrices ($r > 0.90$) established between broad-market benchmarks (`NIFTY50`, `NIFTY500`, and `NIFTY_MIDCAP150`), moving in tight integration during macro liquidity expansions.
+* **The Portfolio Cushion:** Debt instruments (`CRISIL_GILT` and `CRISIL_LIQUID`) validated their role as low-risk defensive anchors, displaying negligible volatility and stable valuation bands over the 4-year cycle.
