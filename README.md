@@ -37,3 +37,37 @@ Mutual Fund Analytics Capstone Project for Bluestock Fintech Business Analyst In
 * **The High-Volatility Vehicle:** `BSE_SMALLCAP` records an exceptionally high structural valuation average, but carries an elevated risk premium with a Standard Deviation ($\sigma \approx 16,442.61$).
 * **Systemic Market Integration:** Strong positive correlation matrices ($r > 0.90$) established between broad-market benchmarks (`NIFTY50`, `NIFTY500`, and `NIFTY_MIDCAP150`), moving in tight integration during macro liquidity expansions.
 * **The Portfolio Cushion:** Debt instruments (`CRISIL_GILT` and `CRISIL_LIQUID`) validated their role as low-risk defensive anchors, displaying negligible volatility and stable valuation bands over the 4-year cycle.
+# Mutual Fund Performance Analytics Dashboard
+
+## 🚀 Project Overview
+This project is an end-to-end Financial Data Analytics pipeline built to evaluate the performance of various mutual fund schemes against the NIFTY100 benchmark. The project focuses on risk-adjusted returns, volatility analysis, and active management performance.
+
+## 🛠️ Tech Stack
+- **Language:** Python
+- **Libraries:** Pandas, NumPy, Scipy, Plotly, Matplotlib
+- **Platform:** Google Colab
+- **Version Control:** GitHub
+
+## 📊 Key Metrics Calculated (Day 4)
+I have implemented the following advanced financial metrics:
+- **Sharpe Ratio:** Measures risk-adjusted returns.
+- **Sortino Ratio:** Focuses on downside risk management.
+- **Alpha:** Represents the value added by active fund management.
+- **Beta:** Measures sensitivity to market volatility (NIFTY100).
+- **Tracking Error:** Measures the deviation from the benchmark.
+
+## 📈 Insights
+- Identified top-performing schemes based on risk-adjusted metrics.
+- Visualized the performance of various schemes against the market benchmark.
+- Analyzed the correlation between portfolio sensitivity (Beta) and returns (Alpha).
+
+## 📂 Project Structure
+- `data/`: Contains the cleaned dataset.
+- `notebooks/`: Contains the Jupyter notebook with EDA and Analytics code.
+- `reports/`: Contains the final performance metrics scorecard.
+
+## 🎓 Learning Outcomes
+Through this project, I gained hands-on experience in:
+1. Handling and cleaning complex time-series financial data.
+2. Applying statistical methods to calculate investment performance.
+3. Building professional financial dashboards for stakeholders.
