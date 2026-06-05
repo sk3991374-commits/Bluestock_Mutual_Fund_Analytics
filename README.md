@@ -37,37 +37,60 @@ Mutual Fund Analytics Capstone Project for Bluestock Fintech Business Analyst In
 * **The High-Volatility Vehicle:** `BSE_SMALLCAP` records an exceptionally high structural valuation average, but carries an elevated risk premium with a Standard Deviation ($\sigma \approx 16,442.61$).
 * **Systemic Market Integration:** Strong positive correlation matrices ($r > 0.90$) established between broad-market benchmarks (`NIFTY50`, `NIFTY500`, and `NIFTY_MIDCAP150`), moving in tight integration during macro liquidity expansions.
 * **The Portfolio Cushion:** Debt instruments (`CRISIL_GILT` and `CRISIL_LIQUID`) validated their role as low-risk defensive anchors, displaying negligible volatility and stable valuation bands over the 4-year cycle.
-# Mutual Fund Performance Analytics Dashboard
+import pandas as pd
+import numpy as np
+from scipy import stats
+import plotly.express as px
 
-## 🚀 Project Overview
-This project is an end-to-end Financial Data Analytics pipeline built to evaluate the performance of various mutual fund schemes against the NIFTY100 benchmark. The project focuses on risk-adjusted returns, volatility analysis, and active management performance.
+# 1. Load Data
+# File ka naam wahi rakha hai jo tumhare folder mein show ho raha tha
+file_name = 'cleaned_merged_mutual_fund_data.xlsx'
+df = pd.read_excel(file_name)
 
-## 🛠️ Tech Stack
-- **Language:** Python
-- **Libraries:** Pandas, NumPy, Scipy, Plotly, Matplotlib
-- **Platform:** Google Colab
-- **Version Control:** GitHub
+# Pivot table - columns check kar liye hain tumhare screenshots se
+pivot_df = df.pivot_table(index='date', columns='index_name', values='close_value')
 
-## 📊 Key Metrics Calculated (Day 4)
-I have implemented the following advanced financial metrics:
-- **Sharpe Ratio:** Measures risk-adjusted returns.
-- **Sortino Ratio:** Focuses on downside risk management.
-- **Alpha:** Represents the value added by active fund management.
-- **Beta:** Measures sensitivity to market volatility (NIFTY100).
-- **Tracking Error:** Measures the deviation from the benchmark.
+# 2. Daily Returns
+daily_returns = pivot_df.pct_change().dropna()
 
-## 📈 Insights
-- Identified top-performing schemes based on risk-adjusted metrics.
-- Visualized the performance of various schemes against the market benchmark.
-- Analyzed the correlation between portfolio sensitivity (Beta) and returns (Alpha).
+# 3. Metrics Calculation
+rf = 0.065 # Risk-free rate
+benchmark = daily_returns['NIFTY100']
 
-## 📂 Project Structure
-- `data/`: Contains the cleaned dataset.
-- `notebooks/`: Contains the Jupyter notebook with EDA and Analytics code.
-- `reports/`: Contains the final performance metrics scorecard.
+# Sharpe Ratio
+sharpe_ratios = (daily_returns.mean() * 252 - rf) / (daily_returns.std() * np.sqrt(252))
 
-## 🎓 Learning Outcomes
-Through this project, I gained hands-on experience in:
-1. Handling and cleaning complex time-series financial data.
-2. Applying statistical methods to calculate investment performance.
-3. Building professional financial dashboards for stakeholders.
+# Alpha & Beta (using Linear Regression)
+results = []
+for col in daily_returns.columns:
+    if col != 'NIFTY100':
+        slope, intercept, _, _, _ = stats.linregress(benchmark, daily_returns[col].fillna(0))
+        results.append({'Scheme': col, 'Alpha': intercept * 252, 'Beta': slope})
+alpha_beta_df = pd.DataFrame(results).set_index('Scheme')
+
+# Sortino Ratio
+sortino_ratios = daily_returns.apply(lambda x: (x.mean()*252 - rf) / (x[x<0].std() * np.sqrt(252)))
+
+# Tracking Error
+tracking_errors = daily_returns.apply(lambda x: (x - benchmark).std() * np.sqrt(252))
+
+# 4. Final Scorecard Construction
+performance_scorecard = pd.DataFrame({
+    'Sharpe Ratio': sharpe_ratios,
+    'Alpha': alpha_beta_df['Alpha'],
+    'Beta': alpha_beta_df['Beta'],
+    'Sortino Ratio': sortino_ratios,
+    'Tracking Error': tracking_errors
+})
+
+# Display Output
+print("--- Day 4 Analytics Scorecard ---")
+display(performance_scorecard)
+
+# Export to CSV for GitHub
+performance_scorecard.to_csv('performance_metrics.csv')
+
+# 5. Visualization (Benchmark Comparison)
+top_schemes = ['BSE_SMALLCAP', 'CRISIL_GILT', 'CRISIL_LIQUID', 'NIFTY50', 'NIFTY100']
+fig = px.line(pivot_df[top_schemes], title="Fund Performance vs Nifty 100")
+fig.show()
