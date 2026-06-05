@@ -37,3 +37,14 @@ Mutual Fund Analytics Capstone Project for Bluestock Fintech Business Analyst In
 * **The High-Volatility Vehicle:** `BSE_SMALLCAP` records an exceptionally high structural valuation average, but carries an elevated risk premium with a Standard Deviation ($\sigma \approx 16,442.61$).
 * **Systemic Market Integration:** Strong positive correlation matrices ($r > 0.90$) established between broad-market benchmarks (`NIFTY50`, `NIFTY500`, and `NIFTY_MIDCAP150`), moving in tight integration during macro liquidity expansions.
 * **The Portfolio Cushion:** Debt instruments (`CRISIL_GILT` and `CRISIL_LIQUID`) validated their role as low-risk defensive anchors, displaying negligible volatility and stable valuation bands over the 4-year cycle.
+## Day 4 — Performance Analytics & Risk Modeling
+
+**Tasks Completed:**
+- Computed core risk-adjusted metrics (**Sharpe Ratio, Sortino Ratio**).
+- Analyzed active management performance using **Alpha** and **Beta** against NIFTY100.
+- Implemented **Tracking Error** analysis for benchmarking.
+- Generated visual comparisons between high-growth equity funds and defensive debt benchmarks.
+
+**Deliverables:**
+- `Performance_Analytics.ipynb` (Full code and logic).
+- `performance_metrics.csv` (Detailed Scorecard).
