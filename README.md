@@ -1,5 +1,10 @@
 # Bluestock_Mutual_Fund_Analytics
-Mutual Fund Analytics Capstone Project for Bluestock Fintech Business Analyst Internship.
+All tasks for this project have been completed in a single Google Colab notebook following a sequential workflow. Instead of creating multiple separate files, the entire pipeline—including data loading, preprocessing, analysis, and modeling—has been implemented in one integrated notebook to ensure better continuity and execution flow.
+
+The workflow is structured in a step-by-step manner within the same file to maintain consistency and enable easy reproducibility.
+
+If required, the project can be modularized into separate scripts or files for each task.Mutual Fund Analytics Capstone Project for Bluestock Fintech Business Analyst Internship.
+
 ## Day 1 — Project Setup & Data Ingestion (ETL)
 
 ### Tasks Completed:
