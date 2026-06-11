@@ -48,3 +48,12 @@ Mutual Fund Analytics Capstone Project for Bluestock Fintech Business Analyst In
 **Deliverables:**
 - `Performance_Analytics.ipynb` (Full code and logic).
 - `performance_metrics.csv` (Detailed Scorecard).
+### Day 5 — Power BI Dashboard Development
+* **Data Modeling:** Connected and validated 8 tables in Power BI; established relationships using `amfi_code` and `date`.
+* **Dashboard Design (4 Pages):**
+    * **Industry Overview:** KPI cards (AUM, SIP Inflows, Folios, Schemes) and growth trend charts.
+    * **Fund Performance:** Risk-vs-Return scatter plots and dynamic scorecards with drill-through functionality.
+    * **Investor Analytics:** Demographic and geographic transaction insights (SIP/Lumpsum).
+    * **SIP & Market Trends:** Correlation analysis (SIP Inflows vs Nifty 50) and category heatmaps.
+* **Branding:** Applied Bluestock colour theme, custom tooltips, and interactivity.
+* **Deliverables:** `bluestock_mf_dashboard.pbix`, `Dashboard.pdf`, and 4 page-level PNG screenshots.
